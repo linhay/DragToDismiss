@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,10 @@
 		CD17661B2C88B70200BC0C1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD17661A2C88B70200BC0C1F /* Assets.xcassets */; };
 		CD17661E2C88B70200BC0C1F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CD17661D2C88B70200BC0C1F /* Base */; };
 		CD1766262C88B84B00BC0C1F /* PresentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1766252C88B84B00BC0C1F /* PresentedViewController.swift */; };
+		CD41DBA02C89A8A6000BB85E /* DragToDismiss in Frameworks */ = {isa = PBXBuildFile; productRef = CD41DB9F2C89A8A6000BB85E /* DragToDismiss */; };
 		CD7845632C898AF400D82F23 /* DragToDismiss in Frameworks */ = {isa = PBXBuildFile; productRef = CD7845622C898AF400D82F23 /* DragToDismiss */; };
+		CD7845712C89A76300D82F23 /* DragToDismiss in Frameworks */ = {isa = PBXBuildFile; productRef = CD7845702C89A76300D82F23 /* DragToDismiss */; };
+		CD7845742C89A81A00D82F23 /* DragToDismiss in Frameworks */ = {isa = PBXBuildFile; productRef = CD7845732C89A81A00D82F23 /* DragToDismiss */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD7845742C89A81A00D82F23 /* DragToDismiss in Frameworks */,
+				CD7845712C89A76300D82F23 /* DragToDismiss in Frameworks */,
+				CD41DBA02C89A8A6000BB85E /* DragToDismiss in Frameworks */,
 				CD7845632C898AF400D82F23 /* DragToDismiss in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +96,9 @@
 			name = DragToDissmiss;
 			packageProductDependencies = (
 				CD7845622C898AF400D82F23 /* DragToDismiss */,
+				CD7845702C89A76300D82F23 /* DragToDismiss */,
+				CD7845732C89A81A00D82F23 /* DragToDismiss */,
+				CD41DB9F2C89A8A6000BB85E /* DragToDismiss */,
 			);
 			productName = DragToDissmiss;
 			productReference = CD17660E2C88B70000BC0C1F /* DragToDissmiss.app */;
@@ -120,6 +129,7 @@
 			);
 			mainGroup = CD1766052C88B70000BC0C1F;
 			packageReferences = (
+				CD41DB9E2C89A8A6000BB85E /* XCLocalSwiftPackageReference "../Sources" */,
 			);
 			productRefGroup = CD17660F2C88B70000BC0C1F /* Products */;
 			projectDirPath = "";
@@ -375,8 +385,27 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		CD41DB9E2C89A8A6000BB85E /* XCLocalSwiftPackageReference "../Sources" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Sources;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		CD41DB9F2C89A8A6000BB85E /* DragToDismiss */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DragToDismiss;
+		};
 		CD7845622C898AF400D82F23 /* DragToDismiss */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DragToDismiss;
+		};
+		CD7845702C89A76300D82F23 /* DragToDismiss */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DragToDismiss;
+		};
+		CD7845732C89A81A00D82F23 /* DragToDismiss */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DragToDismiss;
 		};
