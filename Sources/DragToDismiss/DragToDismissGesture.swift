@@ -9,17 +9,9 @@ import UIKit
 
 public class DragToDismissGesture: NSObject, UIGestureRecognizerDelegate {
     
-    weak var contentView: UIView?
-    weak var containerView: UIView?
-    weak var viewController: UIViewController?
-    
-    private var initialFrame = CGRect.zero
-    private var initialTouchPoint = CGPoint.zero
-    private var initialBackgroundColor = UIColor.black.withAlphaComponent(0.6)
-
-    private let minScale: CGFloat = 0.3
-    private let maxScale: CGFloat = 1.0
-    private let animationDuration: TimeInterval = 0.3
+    public func customDismiss(_ action: @escaping (_ controller: UIViewController) -> Void) {
+        self.dismissAction = action
+    }
     
     public func bind(dismiss viewController: UIViewController) {
         self.viewController = viewController
@@ -33,6 +25,19 @@ public class DragToDismissGesture: NSObject, UIGestureRecognizerDelegate {
     public func bind(contentView: UIView) {
         self.contentView = contentView
     }
+    
+    weak var contentView: UIView?
+    weak var containerView: UIView?
+    weak var viewController: UIViewController?
+    
+    private var dismissAction: ((_ controller: UIViewController) -> Void)?
+    private var initialFrame = CGRect.zero
+    private var initialTouchPoint = CGPoint.zero
+    private var initialBackgroundColor = UIColor.black.withAlphaComponent(0.6)
+
+    private let minScale: CGFloat = 0.3
+    private let maxScale: CGFloat = 1.0
+    private let animationDuration: TimeInterval = 0.3
     
     lazy var panGestureRecognizer: UIPanGestureRecognizer = {
         [weak self] in
@@ -53,9 +58,17 @@ public class DragToDismissGesture: NSObject, UIGestureRecognizerDelegate {
             contentView.frame = result.frame
             containerView.backgroundColor = initialBackgroundColor.withAlphaComponent(result.scale * result.scale)
         case .ended, .cancelled:
-            let isDismiss = contentView.convert(contentView.bounds, to: containerView).minX > containerView.bounds.width / 2
+            let point = contentView.convert(contentView.bounds, to: containerView)
+            let isDismiss = 
+            gestureRecognizer.velocity(in: containerView).y > 100
+            || point.minX > containerView.bounds.width / 2
+            || point.minY > containerView.bounds.height / 2
             if isDismiss {
-                viewController?.dismiss(animated: true)
+                if let action = dismissAction, let controller = viewController {
+                    action(controller)
+                } else {
+                    viewController?.dismiss(animated: true)
+                }
             } else {
                 resetContentViewPosition()
             }
