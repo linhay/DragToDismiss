@@ -50,7 +50,3 @@ present(dragToDismiss, animated: true, completion: nil)
 ## 如何贡献
 
 欢迎提交 issue 或 pull request 来为该项目做出贡献。期待你的参与！
-
----
-
-如果需要进一步调整README，或者添加更多细节，请告诉我！
